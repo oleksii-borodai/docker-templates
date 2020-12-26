@@ -8,7 +8,8 @@
   <Shell>bash</Shell>
   <Privileged>false</Privileged>
   <WebUI>http://[IP]:[PORT:8080]</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/aboroday/unraid-docker-templates/main/docker-templates/traefik.xml</TemplateURL>>
+  <TemplateURL>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/traefik.xml</TemplateURL>>
+  <Icon>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/img/traefik.logo.png</Icon>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
