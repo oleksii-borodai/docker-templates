@@ -10,31 +10,44 @@
   <WebUI>http://[IP]:[PORT:8080]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/traefik.xml</TemplateURL>>
   <Icon>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/img/traefik.logo.png</Icon>
+  <PostArgs>test</PostArgs>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
       <Port>
-        <HostPort></HostPort>
+        <HostPort>8080</HostPort>
         <ContainerPort>8080</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
       <Port>
-        <HostPort></HostPort>
+        <HostPort>443</HostPort>
         <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>443</HostPort>
+        <ContainerPort>443</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
     </Publish>
   </Networking>
   <Data>
-    <Volume>
-      <HostDir></HostDir>
-      <ContainerDir>/etc/traefik/traefik.toml</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
   </Data>
   <Environment>
+    <Variable>
+      <Value>true</Value>
+      <Name>TRAEFIK_API_INSECURE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>true</Value>
+      <Name>TRAEFIK_PROVIDERS_DOCKER</Name>
+      <Mode/>
+    </Variable>
   </Environment>
   <Labels/>
-  <Config Name="GUI Port" Target="8080" Default="" Mode="tcp" Description="GUI Port - Default 8080" Type="Port" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="WebUI Port" Target="8080" Default="" Mode="tcp" Description="WebUI Port - Default 8080" Type="Port" Display="always" Required="false" Mask="false"></Config>
   <Config Name="HTTP Proxy Port" Target="80" Default="" Mode="tcp" Description="HTTP Proxy Port - Default 80" Type="Port" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Enable WebUI" Target="TRAEFIK_API_INSECURE" Default="true" Mode="" Description="Enable WebUI on WebUI port" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Enable Docker provider" Target="TRAEFIK_PROVIDERS_DOCKER" Default="true" Mode="" Description="Enable docker provider" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
 </Container>
