@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>traefik</Name>
+  <Repository>traefik</Repository>
+  <Registry>https://hub.docker.com/_/traefik/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <WebUI>http://[IP]:[PORT:8080]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/aboroday/unraid-docker-templates/main/docker-templates/traefik.xml</TemplateURL>>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort></HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort></HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/etc/traefik/traefik.toml</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+  </Environment>
+  <Labels/>
+  <Config Name="GUI Port" Target="8080" Default="" Mode="tcp" Description="GUI Port - Default 8080" Type="Port" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="HTTP Proxy Port" Target="80" Default="" Mode="tcp" Description="HTTP Proxy Port - Default 80" Type="Port" Display="always" Required="false" Mask="false"></Config>
+</Container>
