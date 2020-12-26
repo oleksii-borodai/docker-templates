@@ -10,7 +10,6 @@
   <WebUI>http://[IP]:[PORT:8080]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/traefik.xml</TemplateURL>>
   <Icon>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/img/traefik.logo.png</Icon>
-  <PostArgs>test</PostArgs>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
@@ -49,11 +48,17 @@
       <Name>TRAEFIK_PROVIDERS_DOCKER</Name>
       <Mode/>
     </Variable>
+    <Variable>
+      <Value>false</Value>
+      <Name>TRAEFIK_PROVIDERS_DOCKER_EXPOSEDBYDEFAULT</Name>
+      <Mode/>
+    </Variable>
   </Environment>
   <Labels/>
   <Config Name="WebUI Port" Target="8080" Default="" Mode="tcp" Description="WebUI Port - Default 8080" Type="Port" Display="always" Required="false" Mask="false"></Config>
   <Config Name="HTTP Proxy Port" Target="80" Default="" Mode="tcp" Description="HTTP Proxy Port - Default 80" Type="Port" Display="always" Required="false" Mask="false"></Config>
   <Config Name="Enable WebUI" Target="TRAEFIK_API_INSECURE" Default="true" Mode="" Description="Enable WebUI on WebUI port" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
   <Config Name="Enable Docker provider" Target="TRAEFIK_PROVIDERS_DOCKER" Default="true" Mode="" Description="Enable docker provider" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Expose all containers by default" Target="TRAEFIK_PROVIDERS_DOCKER_EXPOSEDBYDEFAULT" Default="false" Mode="" Description="Expose all containers by default" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
   <Config Name="Docker socket location" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="rw" Description="Path to docker.sock socket" Type="Path" Display="always" Required="false" Mask="false">/var/run/docker.sock</Config>
 </Container>
