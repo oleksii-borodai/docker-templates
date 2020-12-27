@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>portainer</Name>
+  <Repository>portainer/portainer-ce</Repository>
+  <Registry>https://hub.docker.com/r/portainer/portainer-ce</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <WebUI>http://[IP]:[PORT:8080]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/portainer.xml</TemplateURL>>
+  <Icon>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/img/portainer.logo.png</Icon>
+  <PostArgs>-H unix:///var/run/docker.sock</PostArgs>
+  <Networking>
+    <Mode>bridge</Mode>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/var/run/docker.sock</HostDir>
+      <ContainerDir>/var/run/docker.sock</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/portainer</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+  </Environment>
+  <Labels/>
+  <Config Name="Docker socket location" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="rw" Description="Path to docker.sock socket" Type="Path" Display="always" Required="false" Mask="false">/var/run/docker.sock</Config>
+  <Config Name="Portainer data directory" Target="/mnt/user/appdata/portainer" Default="/mnt/user/appdata/portainer" Mode="rw" Description="Path to Portainer data" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/portainer</Config>
+</Container>
