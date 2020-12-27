@@ -39,9 +39,15 @@
       <Name>traefik.http.services.frontend.loadbalancer.server.port</Name>
       <Mode/>
     </Label>
+    <Label>
+      <Value></Value>
+      <Name>traefik.http.routers.frontend.rule</Name>
+      <Mode/>
+    </Label>
   </Labels>
   <Config Name="Docker socket location" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="rw" Description="Path to docker.sock socket" Type="Path" Display="always" Required="false" Mask="false">/var/run/docker.sock</Config>
   <Config Name="Portainer data directory" Target="/mnt/user/appdata/portainer" Default="/mnt/user/appdata/portainer" Mode="rw" Description="Path to Portainer data" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/portainer</Config>
   <Config Name="Enable proxying by traefik" Target="traefik.enable" Default="true" Mode="" Description="Enable proxying by traefik" Type="Label" Display="always" Required="false" Mask="false">true</Config>
   <Config Name="Portainer port(traefik)" Target="traefik.http.services.frontend.loadbalancer.server.port" Default="9000" Mode="" Description="Portainer port(traefik)" Type="Label" Display="always" Required="false" Mask="false">9000</Config>
+  <Config Name="Portainer hostname(traefik)" Target="traefik.http.routers.frontend.rule" Default="" Mode="" Description="Portainer hostname(traefik)" Type="Label" Display="always" Required="false" Mask="false"></Config>
 </Container>
