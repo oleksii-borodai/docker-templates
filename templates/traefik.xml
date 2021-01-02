@@ -32,8 +32,8 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/traefik</HostDir>
-      <ContainerDir>/etc/traefik</ContainerDir>
+      <HostDir>/mnt/user/appdata/traefik/</HostDir>
+      <ContainerDir>/etc/traefik/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
@@ -47,6 +47,6 @@
   <Config Name="WebUI Port" Target="8080" Default="8080" Mode="tcp" Description="WebUI Port - Default 8080" Type="Port" Display="always" Required="false" Mask="false">8080</Config>
   <Config Name="HTTP Proxy Port" Target="80" Default="80" Mode="tcp" Description="HTTP Proxy Port - Default 80" Type="Port" Display="always" Required="false" Mask="false">80</Config>
   <Config Name="HTTPS Proxy Port" Target="443" Default="443" Mode="tcp" Description="HTTPS Proxy Port - Default 80" Type="Port" Display="always" Required="false" Mask="false">443</Config>
-  <Config Name="Configuration location" Target="/etc/traefik" Default="/mnt/user/appdata/traefik" Mode="rw" Description="Path to traefik config directory" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/traefik</Config>
+  <Config Name="Configuration location" Target="/etc/traefik/" Default="/mnt/user/appdata/traefik/" Mode="rw" Description="Path to traefik config directory" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/traefik/</Config>
   <Config Name="Docker socket location" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="rw" Description="Path to docker.sock socket" Type="Path" Display="always" Required="false" Mask="false">/var/run/docker.sock</Config>
 </Container>
