@@ -4,6 +4,7 @@
   <Repository>traefik</Repository>
   <Registry>https://hub.docker.com/_/traefik/</Registry>
   <Network>bridge</Network>
+  <Category>Network:Web,Network:Proxy</Category>
   <MyIP/>
   <Shell>bash</Shell>
   <Privileged>false</Privileged>
