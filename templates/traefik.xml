@@ -19,7 +19,7 @@
         <Protocol>tcp</Protocol>
       </Port>
       <Port>
-        <HostPort>443</HostPort>
+        <HostPort>80</HostPort>
         <ContainerPort>80</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
@@ -32,33 +32,21 @@
   </Networking>
   <Data>
     <Volume>
+      <HostDir>/mnt/user/appdata/traefik</HostDir>
+      <ContainerDir>/etc/traefik</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
       <HostDir>/var/run/docker.sock</HostDir>
       <ContainerDir>/var/run/docker.sock</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <Environment>
-    <Variable>
-      <Value>true</Value>
-      <Name>TRAEFIK_API_INSECURE</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>true</Value>
-      <Name>TRAEFIK_PROVIDERS_DOCKER</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>false</Value>
-      <Name>TRAEFIK_PROVIDERS_DOCKER_EXPOSEDBYDEFAULT</Name>
-      <Mode/>
-    </Variable>
-  </Environment>
+  <Environment/>
   <Labels/>
-  <Config Name="WebUI Port" Target="8080" Default="" Mode="tcp" Description="WebUI Port - Default 8080" Type="Port" Display="always" Required="false" Mask="false"></Config>
-  <Config Name="HTTP Proxy Port" Target="80" Default="" Mode="tcp" Description="HTTP Proxy Port - Default 80" Type="Port" Display="always" Required="false" Mask="false"></Config>
-  <Config Name="Enable WebUI" Target="TRAEFIK_API_INSECURE" Default="true" Mode="" Description="Enable WebUI on WebUI port" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
-  <Config Name="Enable Docker provider" Target="TRAEFIK_PROVIDERS_DOCKER" Default="true" Mode="" Description="Enable docker provider" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
-  <Config Name="Expose all containers by default" Target="TRAEFIK_PROVIDERS_DOCKER_EXPOSEDBYDEFAULT" Default="false" Mode="" Description="Expose all containers by default" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
+  <Config Name="WebUI Port" Target="8080" Default="8080" Mode="tcp" Description="WebUI Port - Default 8080" Type="Port" Display="always" Required="false" Mask="false">8080</Config>
+  <Config Name="HTTP Proxy Port" Target="80" Default="80" Mode="tcp" Description="HTTP Proxy Port - Default 80" Type="Port" Display="always" Required="false" Mask="false">80</Config>
+  <Config Name="HTTPS Proxy Port" Target="443" Default="443" Mode="tcp" Description="HTTPS Proxy Port - Default 80" Type="Port" Display="always" Required="false" Mask="false">443</Config>
+  <Config Name="Configuration location" Target="/etc/traefik" Default="/mnt/user/appdata/traefik" Mode="rw" Description="Path to traefik config directory" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/traefik</Config>
   <Config Name="Docker socket location" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="rw" Description="Path to docker.sock socket" Type="Path" Display="always" Required="false" Mask="false">/var/run/docker.sock</Config>
 </Container>
