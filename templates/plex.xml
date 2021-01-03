@@ -75,11 +75,6 @@
       <Name>traefik.http.services.frontend.loadbalancer.server.port</Name>
       <Mode/>
     </Label>
-    <Label>
-      <Value></Value>
-      <Name>traefik.http.routers.frontend.rule</Name>
-      <Mode/>
-    </Label>
   </Labels>
   <Config Name="VERSION" Target="VERSION" Default="" Mode="" Description="VERSION" Type="Variable" Display="always" Required="false" Mask="false">docker</Config>
   <Config Name="Media" Target="/media" Default="" Mode="rw" Description="Media - /media" Type="Path" Display="always" Required="false" Mask="false"/>
@@ -90,5 +85,4 @@
   <Config Name="PGID" Target="PGID" Default="" Mode="" Description="PGID" Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
   <Config Name="Enable proxying by traefik" Target="traefik.enable" Default="true" Mode="" Description="Enable proxying by traefik" Type="Label" Display="always" Required="false" Mask="false">true</Config>
   <Config Name="Webui" Target="traefik.http.services.frontend.loadbalancer.server.port" Default="32400" Mode="tcp" Description="For access to the Plex Media Server Webui (No effect in host mode - reference only)" Type="Label" Display="advanced" Required="false" Mask="false">32400</Config>
-  <Config Name="Plex hostname" Target="traefik.http.routers.frontend.rule" Default="" Mode="" Description="Portainer hostname" Type="Label" Display="always" Required="false" Mask="false"></Config>
 </Container>
