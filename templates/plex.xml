@@ -13,7 +13,7 @@
   <Category>MediaServer:Video MediaServer:Music MediaServer:Photos</Category>
   <WebUI>http://[IP]:[PORT:32400]/web</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/aboroday/docker-templates/master/linuxserver.io/plex.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/aboroday/docker-templates/master/linuxserver.io/img/plex-icon.png</Icon>
+  <Icon>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/img/plex-icon.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
