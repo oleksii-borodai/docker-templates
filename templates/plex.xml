@@ -66,13 +66,8 @@
   </Environment>
   <Labels>
     <Label>
-      <Value>true</Value>
+      <Value>false</Value>
       <Name>traefik.enable</Name>
-      <Mode/>
-    </Label>
-    <Label>
-      <Value>32400</Value>
-      <Name>traefik.http.services.frontend.loadbalancer.server.port</Name>
       <Mode/>
     </Label>
   </Labels>
@@ -83,6 +78,5 @@
   <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Appdata" Type="Path" Display="advanced" Required="false" Mask="false"></Config>
   <Config Name="PUID" Target="PUID" Default="" Mode="" Description="PUID" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="" Mode="" Description="PGID" Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
-  <Config Name="Enable proxying by traefik" Target="traefik.enable" Default="true" Mode="" Description="Enable proxying by traefik" Type="Label" Display="always" Required="false" Mask="false">true</Config>
-  <Config Name="Webui" Target="traefik.http.services.frontend.loadbalancer.server.port" Default="32400" Mode="tcp" Description="For access to the Plex Media Server Webui (No effect in host mode - reference only)" Type="Label" Display="advanced" Required="false" Mask="false">32400</Config>
+  <Config Name="Enable proxying by traefik" Target="traefik.enable" Default="" Mode="" Description="Enable proxying by traefik" Type="Label" Display="advanced" Required="false" Mask="false">false</Config>
 </Container>
