@@ -74,6 +74,11 @@
       <Name>traefik.enable</Name>
       <Mode/>
     </Label>
+    <Label>
+      <Value>false</Value>
+      <Name>traefik.http.services.plex.loadbalancer.server.port</Name>
+      <Mode/>
+    </Label>
   </Labels>
   <Config Name="Media" Target="/media" Default="" Mode="rw" Description="Media - /media" Type="Path" Display="always" Required="false" Mask="false"/>
   <Config Name="Transcode" Target="/transcode" Default="" Mode="rw" Description="Path for transcoding folder (Optional)" Type="Path" Display="always" Required="false" Mask="false"/>
@@ -85,4 +90,6 @@
   <Config Name="ADVERTISE_IP" Target="ADVERTISE_IP" Default="" Mode="" Description="This variable defines the additional IPs on which the server may be be found. This is only needed in Bridge Networking." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="ALLOWED_NETWORKS" Target="ALLOWED_NETWORKS" Default="" Mode="" Description="IP/netmask entries which allow access to the server without requiring authorization. We recommend you set this only if you do not sign in your server." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Enable proxying by traefik" Target="traefik.enable" Default="" Mode="" Description="Enable proxying by traefik" Type="Label" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="PLEX port to proxy by traefik" Target="traefik.http.services.plex.loadbalancer.server.port" Default="" Mode="" Description="Container Label: traefik.http.services.plex.loadbalancer.server.port" Type="Label" Display="advanced" Required="false" Mask="false">32400</Config>
+
 </Container>
