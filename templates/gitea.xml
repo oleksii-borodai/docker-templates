@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>gitea</Name>
+  <Repository>gitea/gitea:1</Repository>
+  <Registry>https://hub.docker.com/r/gitea/gitea/</Registry>
+  <Network>br0</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Project>https://gitea.io/</Project>
+  <Overview>A painless self-hosted Git service.</Overview>
+  <TemplateURL>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/gitea.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/img/gitea.logo.png</Icon>
+  <Networking>
+    <Mode>br0</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/gitea/data</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/etc/localtime</HostDir>
+      <ContainerDir>/etc/localtime</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value/>
+      <Name>USER_UID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>USER_GID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>America/Vancouver</Value>
+      <Name>TZ</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="USER_UID" Target="USER_UID" Default="1000" Mode="" Description="Container Variable: USER_UID" Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+  <Config Name="USER_GID" Target="USER_GID" Default="1000" Mode="" Description="Container Variable: USER_GID" Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+  <Config Name="TZ" Target="TZ" Default="America/Vancouver" Mode="" Description="Container Variable: TZ" Type="Variable" Display="advanced" Required="false" Mask="false">America/Vancouver</Config>
+  <Config Name="Data" Target="/data" Default="/mnt/user/appdata/gitea/data" Mode="rw" Description="Directory to store all data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/gitea/data</Config>
+  <Config Name="localtime" Target="/etc/localtime" Default="/etc/localtime" Mode="ro" Description="Container Path: /etc/localtime" Type="Path" Display="advanced" Required="false" Mask="false">/etc/localtime</Config>
+</Container>
