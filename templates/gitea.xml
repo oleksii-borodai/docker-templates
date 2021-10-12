@@ -9,8 +9,8 @@
   <Privileged>false</Privileged>
   <Project>https://gitea.io/</Project>
   <Overview>A painless self-hosted Git service.</Overview>
-  <TemplateURL>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/gitea.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/img/gitea.logo.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/oleksii-borodai/docker-templates/master/templates/gitea.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/oleksii-borodai/docker-templates/master/templates/img/gitea.logo.png</Icon>
   <Networking>
     <Mode>br0</Mode>
     <Publish/>
