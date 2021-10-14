@@ -3,20 +3,18 @@
   <Name>plex</Name>
   <Repository>plexinc/pms-docker</Repository>
   <Registry>https://hub.docker.com/r/plexinc/pms-docker/</Registry>
-  <Network>bridge</Network>
+  <Network>br0</Network>
   <Shell>bash</Shell>
   <Privileged>false</Privileged>
   <Project>https://www.plex.tv/</Project>
   <Overview>Plex organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices.[br][br][b][u][span style='color: #E80000;']Nvidia GPU Use[/span][/u][/b][br]Using the Unraid Nvidia Plugin to install a version of Unraid with the Nvidia Drivers installed and[br] add [b]--runtime=nvidia[/b] to [b]"extra parameters"[/b] (switch on advanced view) and[br]copy your [b]GPU UUID[/b] to [b]NVIDIA_VISIBLE_DEVICES.[/b][br][br][b][u][span style='color: #E80000;']Intel GPU Use[/span][/u][/b][br]Edit your [b]go[/b] file to include:[br][b]modprobe i915[br][/b], save and reboot, then [br]add [b]--device=/dev/dri[/b] to [b]"extra parameters"[/b] (switch on advanced view)</Overview>
   <Category>MediaServer:Video MediaServer:Music MediaServer:Photos</Category>
   <WebUI>http://[IP]:[PORT:32400]/web</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/aboroday/docker-templates/master/linuxserver.io/plex.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/aboroday/docker-templates/master/templates/img/plex-icon.png</Icon>
-  <ExtraParams/>
-  <PostArgs/>
+  <TemplateURL>https://raw.githubusercontent.com/oleksii-borodai/docker-templates/master/templates/plex.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/oleksii-borodai/docker-templates/master/templates/img/plex.logo.png</Icon>
   <Description>Plex organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices.</Description>
   <Networking>
-    <Mode>bridge</Mode>
+    <Mode>br0</Mode>
     <Publish/>
   </Networking>
   <Data>
@@ -38,12 +36,12 @@
   </Data>
   <Environment>
     <Variable>
-      <Value>99</Value>
+      <Value>0</Value>
       <Name>PLEX_UID</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>100</Value>
+      <Value>0</Value>
       <Name>PLEX_GID</Name>
       <Mode/>
     </Variable>
@@ -68,28 +66,13 @@
       <Mode/>
     </Variable>
   </Environment>
-  <Labels>
-    <Label>
-      <Value>false</Value>
-      <Name>traefik.enable</Name>
-      <Mode/>
-    </Label>
-    <Label>
-      <Value>false</Value>
-      <Name>traefik.http.services.plex.loadbalancer.server.port</Name>
-      <Mode/>
-    </Label>
-  </Labels>
-  <Config Name="Media" Target="/media" Default="" Mode="rw" Description="Media - /media" Type="Path" Display="always" Required="false" Mask="false"/>
-  <Config Name="Transcode" Target="/transcode" Default="" Mode="rw" Description="Path for transcoding folder (Optional)" Type="Path" Display="always" Required="false" Mask="false"/>
+  <Config Name="Media" Target="/media" Default="" Mode="rw" Description="Media - /media" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Transcode" Target="/transcode" Default="" Mode="rw" Description="Path for transcoding folder (Optional)" Type="Path" Display="always" Required="true" Mask="false"/>
   <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Appdata" Type="Path" Display="advanced" Required="false" Mask="false"/>
-  <Config Name="PLEX_UID" Target="PLEX_UID" Default="" Mode="" Description="The user id of the plex user created inside the container." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
-  <Config Name="PLEX_GID" Target="PLEX_GID" Default="" Mode="" Description="The group id of the plex group created inside the container." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Config Name="PLEX_UID" Target="PLEX_UID" Default="1000" Mode="" Description="The user id of the plex user created inside the container." Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+  <Config Name="PLEX_GID" Target="PLEX_GID" Default="1000" Mode="" Description="The group id of the plex group created inside the container." Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
   <Config Name="PLEX_CLAIM" Target="PLEX_CLAIM" Default="" Mode="" Description="The claim token for the server to obtain a real server token. If not provided, server is will not be automatically logged in. If server is already logged in, this parameter is ignored. You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim" Type="Variable" Display="advanced" Required="false" Mask="false"/>
-  <Config Name="HOSTNAME" Target="HOSTNAME" Default="" Mode="" Description="The claim token for the server to obtain a real server token. If not provided, server is will not be automatically logged in. If server is already logged in, this parameter is ignored. You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="HOSTNAME" Target="HOSTNAME" Default="" Mode="" Description="Plex hostname" Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="ADVERTISE_IP" Target="ADVERTISE_IP" Default="" Mode="" Description="This variable defines the additional IPs on which the server may be be found. This is only needed in Bridge Networking." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="ALLOWED_NETWORKS" Target="ALLOWED_NETWORKS" Default="" Mode="" Description="IP/netmask entries which allow access to the server without requiring authorization. We recommend you set this only if you do not sign in your server." Type="Variable" Display="advanced" Required="false" Mask="false"/>
-  <Config Name="Enable proxying by traefik" Target="traefik.enable" Default="" Mode="" Description="Enable proxying by traefik" Type="Label" Display="advanced" Required="false" Mask="false">false</Config>
-  <Config Name="PLEX port to proxy by traefik" Target="traefik.http.services.plex.loadbalancer.server.port" Default="" Mode="" Description="Container Label: traefik.http.services.plex.loadbalancer.server.port" Type="Label" Display="advanced" Required="false" Mask="false">32400</Config>
-
 </Container>
